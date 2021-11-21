@@ -78,8 +78,10 @@
         
         //Get all the values from form
         $id = $_POST['id'];
-        $full_name= $_POST['full_name'];
-        $username = $_POST['username'];
+        // $full_name= $_POST['full_name'];
+        $full_name= mysqli_real_escape_string($conn,$_POST['full_name']);
+        // $username = $_POST['username'];
+        $username = mysqli_real_escape_string($conn,$_POST['username']);
 
         //Create a SQL query to Update Admin
         $sql = "Update tbl_admin SET

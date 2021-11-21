@@ -61,10 +61,14 @@
         //Button Clicked
         
         //1. Get the data from form
-        $full_name= $_POST['full_name'];
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);    //Password Encryption with MD5
-
+        
+        // $full_name= $_POST['full_name'];
+        $full_name= mysqli_real_escape_string($conn,$_POST['full_name']);
+        // $username = $_POST['username];
+        $username = mysqli_real_escape_string($conn,$_POST['username']);
+        $r_password = md5($_POST['password']);    //Password Encryption with MD5
+        $password = mysqli_real_escape_string($conn,$r_password);
+        
         //2. SQL Query to save the data
         $sql = "INSERT INTO tbl_admin SET
             full_name='$full_name',
